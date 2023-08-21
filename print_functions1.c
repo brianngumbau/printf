@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 /** PRINT UNSIGNED NUMBER **/
 /**
  * print_unsigned - prints an unsigned number
@@ -104,7 +105,7 @@ int print_hexadecimal(va_list types, char buffer[],
 int print_hexa_upper(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	return (prinmt_hexa(types, "0123456789ABCDEF", buffer,
+	return (print_hexa(types, "0123456789ABCDEF", buffer,
 				flags, 'X', width, precision, size));
 }
 /** PRINT HEXX NUM IN LOWER OR UPPER **/

@@ -1,4 +1,4 @@
-iifndef MAIN_H
+#ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
 #include <stdio.h>
@@ -19,16 +19,16 @@ iifndef MAIN_H
 #define S_SHORT 1
 
 /**
- * struct fmt - struct op
+ * typedef struct fmt - struct op
  * by brian amd michelle
  * @fmt: format
  * @fn: function associated
  */
-struct fmt
+typedef struct fmt
 {
-	char fmt;
+	char c;
 	int (*fn)(va_list, char[], int, int, int, int);
-};
+}fm_t;
 
 /**
  * typedef struct fmt fmt_t - struct op
@@ -56,7 +56,7 @@ int print_octal(va_list types, char buffer[], int flags, int width, int precisio
 int print_hexadecimal(va_list types, char buffer[], int flags, int width, int precision, int size);
 int print_hexa_upper(va_list types, char buffer[], int flags, int width, int precision, int size);
 
-int print_hexa(va_list types, char map_to[], char buffer[], int flags, int flags, char flag_ch, int width, int precision, int size);
+int print_hexa(va_list types, char map_to[], char buffer[], int flags, char flag_ch, int width, int precision, int size);
 
 /** to handle other specifiers **/
 int get_flags(const char *format, int *i);
@@ -85,4 +85,10 @@ long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
 int _putchar(char c);
+
+/* Function that prints non printable characters */
+int print_non_printable(va_list types, char buffer[], int flags, int width, int precision, int size);
+
+/* Function to print memory address */
+int print_pointer(va_list types, char buffer[], int flags, int width, int precision, int size);
 #endif
