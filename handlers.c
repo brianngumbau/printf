@@ -31,7 +31,7 @@ int handle_write_char(char c, char buffer[],
 	{
 		buffer[BUFF_SIZE - 1] = '\0';
 		for (i = 0; i < width - 1; i++)
-			buffer[BUFF_SIZE - i - 2] - padd;
+			buffer[BUFF_SIZE - i - 2] = padd;
 
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +
@@ -71,7 +71,7 @@ int write_number(int is_negative, int ind, char buffer[],
 		extra_ch = ' ';
 
 	return (write_num(ind, buffer, flags, width, precision,
-				length, padd, extar_ch));
+				length, padd, extra_ch));
 }
 /**
  * write_num - writes a number using a buffer
@@ -115,7 +115,7 @@ int write_num(int ind, char buffer[], int flags,
 		{
 			if (extra_c)
 				buffer[--ind] = extra_c;
-			return (write(1, &buffer[1], i - 1) + write(1. & buffer[ind], length));
+			return (write(1, &buffer[1], i - 1) + write(1, & buffer[ind], length));
 		}
 		else if (!(flags & F_MINUS) && padd == '0')
 		{
