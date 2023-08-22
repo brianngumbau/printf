@@ -111,8 +111,6 @@ int is_digit(char);
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
-int _putchar(char c);
-
 /* Function that prints non printable characters */
 int print_non_printable(va_list types, char buffer[], int flags, int width, int precision, int size);
 
