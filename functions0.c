@@ -31,7 +31,7 @@ int flags, int width, int precision, int size)
 {
 int length = 0, i;
 char *str;
-str= va_arg(types, char *);
+str = va_arg(types, char *);
 UNUSED(buffer);
 UNUSED(flags);
 UNUSED(width);
