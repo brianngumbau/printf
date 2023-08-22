@@ -39,11 +39,12 @@ int print_pointer(va_list types, char buffer[],
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (flags & F_PLUS)
-		extra_c = '+';
+		extra_c = '+', length++;
+	else if (flags & F_SPACE)
 		extra_c = ' ', length++;
 	ind++;
 
-	return (write(buffer, ind, length,
+	return (write_pointer(buffer, ind, length,
 				width, flags, padd, extra_c, padd_start));
 }
 /** PRINT NON PRINTABLE **/
@@ -121,6 +122,7 @@ int print_reverse(va_list types, char buffer[],
 	{
 		char z = str[i];
 
+		write(1, &z, 1);
 		count++;
 	}
 	return (count);
