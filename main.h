@@ -19,16 +19,16 @@
 #define S_SHORT 1
 
 /**
- * typedef struct fmt - struct op
- * by brian amd michelle
+ * struct fmt - struct op
+ * by brian and michelle
  * @fmt: format
  * @fn: function associated
  */
-typedef struct fmt
+struct fmt
 {
-	char c;
+	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
-}fm_t;
+};
 
 /**
  * typedef struct fmt fmt_t - struct op
@@ -98,6 +98,8 @@ int write_number(int is_positive, int ind, char buffer[],
 		int flags, int width, int precision, int size);
 int write_num(int ind, char bff[], int flags,
 		int width, int precision, int length, char padd, char extra_c);
+int write_pointer(char buffer[], int ind, int length,
+		int width, int flags, char padd, char extra_c, int padd_start);
 int write_unsgnd(int is_negative, int ind, char buffer[],
 		int flags, int width, int precision, int size);
 
