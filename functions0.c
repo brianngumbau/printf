@@ -106,18 +106,29 @@ unsigned long int num;
 n = convert_size_number(n, size);
 if (n == 0)
 buffer[i--] = '0';
-num = (unsigned long int)n;
+else
+{
 if (n < 0)
 {
-num = (unsigned long int)((-1) * n);
+num = (unsigned long int)(-n);
 is_negative = 1;
+}
+else
+{
+num = (unsigned long int)n;
+if (flags & F_PLUS)
+buffer[i--] = '+';
+else if (flags & F_SPACE)
+buffer[i--] = ' ';
 }
 while (num > 0)
 {
 buffer[i--] = (num % 10) + '0';
 num /= 10;
 }
-i++;
+if (is_negative)
+buffer[i--] = '-';
+}
 return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
 /**
