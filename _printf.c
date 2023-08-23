@@ -30,7 +30,7 @@ buffer[buff_ind++] = format[c];
 if (buff_ind == BUFF_SIZE)
 {
 print_buffer(buffer, &buff_ind);
-printed_chars++;
+printed_chars += buff_ind;
 }
 }
 else
@@ -49,6 +49,7 @@ printed_chars += printed;
 }
 }
 print_buffer(buffer, &buff_ind);
+printed_chars += buff_ind;
 va_end(list);
 return (printed_chars);
 }
