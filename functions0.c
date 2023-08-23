@@ -116,7 +116,7 @@ is_negative = 1;
 else
 {
 num = (unsigned long int)n;
-if ((flags & F_PLUS) && !is_negative)
+if ((flags & F_PLUS) && n >= 0)
 {
 buffer[i--] = '+';
 width--;
