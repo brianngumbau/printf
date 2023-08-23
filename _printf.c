@@ -31,6 +31,8 @@ if (buff_ind == BUFF_SIZE)
 {
 print_buffer(buffer, &buff_ind);
 printed_chars += buff_ind;
+printf("Buffer: %.*s\n", buff_ind, buffer);
+printf("Printed Chars: %d\n", printed_chars);
 }
 }
 else
